@@ -1,9 +1,9 @@
 import React, { useState } from "react";
+import LoginPhoto from "./images/cover.png";
 import "./login.css";
 const Login = () => {
   const [firstName, setFirstName] = useState("");
   const [password, setPassword] = useState("");
-  // const [message, setMessage] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -22,6 +22,7 @@ const Login = () => {
     <div>
       <div className="login">
         <form onSubmit={handleSubmit}>
+          <img src={LoginPhoto} alt="" />
           <input
             type="text"
             id="firstName"
@@ -42,9 +43,9 @@ const Login = () => {
             }}
           />
 
-          <button type="submit">Submit</button>
-
-          {/* <h2>{message}</h2> */}
+          <button type="submit" className="glow-on-hover">
+            Submit
+          </button>
         </form>
       </div>
     </div>
