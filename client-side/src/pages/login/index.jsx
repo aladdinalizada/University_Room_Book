@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Helmet from "react-helmet";
 import LoginPhoto from "./images/cover.png";
 import "./login.css";
 const Login = () => {
@@ -9,17 +10,27 @@ const Login = () => {
     event.preventDefault();
     setFirstName("");
     setPassword("");
-
     const data = {
       firstName: firstName,
       password: password,
     };
-
     localStorage.setItem("data", JSON.stringify(data));
+
+    if (firstName === "admin" && password === "Eleddin2003") {
+      window.location.href = "/rooms";
+    } else {
+      alert("Invalid Credentials");
+    }
   };
 
   return (
     <div>
+      <Helmet>
+        <title>Login</title>
+        <meta name="description" content="Login" />
+        <meta name="keywords" content="Login" />
+      </Helmet>
+
       <div className="login">
         <form onSubmit={handleSubmit}>
           <img src={LoginPhoto} alt="" />
